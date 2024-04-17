@@ -9,9 +9,9 @@ class Component extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'view_file', 'fields'];
+    protected $fillable = ['name', 'view_file', 'props'];
 
     protected $casts = [
-        'fields' => 'array',
+        'props' => 'array',
     ];
 }

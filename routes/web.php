@@ -8,11 +8,20 @@ use App\Http\Controllers\TemplateController;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\App;
 
+
+
+
+
+
+
 Route::view('/', 'welcome');
+
 
 Route::view('/lol', 'startpage');
 
 Route::get('locale/{lang}', [LocaleController::class, 'setLocale'])->name('locale');
+
+
 
 /**  Pages  **/
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
@@ -47,4 +56,8 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
+
+    
+    
 require __DIR__.'/auth.php';
+Route::get('/{slug}', [PageController::class, 'render'])->name('pages.render');

@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
 
+    public function render($slug){
+        $page = Page::where('slug', $slug)->firstOrFail();
+        $content = $page->content != "{}" ? json_decode($page->content, true) : [];
+        return view($slug, compact('page', 'content'));
+    }
+
     public function index()
     {
         $pages = Page::all();

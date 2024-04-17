@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('view_file'); 
-            $table->json('content')->nullable();
+            $table->json('props')->nullable();
             $table->timestamps();
         });
     }
